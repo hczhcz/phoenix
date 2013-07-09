@@ -56,7 +56,17 @@ class Query(_QueryBase):
 
 class MultiQuery(_QueryBase):
     def _StrToLambda(self, str):
-        return lambda dataobj: (lambda data: eval(str))([item.Dataset() for item in dataobj])
+        return lambda dataobj: (lambda data, summary: eval(str))([item.Dataset() for item in dataobj], self.Summaryset(dataobj))
+
+    def Summaryset(self, data):
+        assert len(data) > 0
+        return {
+            'IsAwarded': True in {item.IsAwarded() for item in data},
+            'CoveredAward': {subitem for item in data for subitem in item.Award()},
+            'CoveredMember': {subitem for item in data for subitem in item.Member()},
+            'MemberChanged': True in {set(item.Member) != set(data[0].Member) for item in data},
+            'FieldChanged': True in {item.Field != data[0].Field for item in data}
+        }
 
     def PrintToString(self):
         result = ''
