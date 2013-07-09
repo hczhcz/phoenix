@@ -6,7 +6,7 @@ _MemberToMembers = {}
 _AutoFix = True # For uncompleted data
 _Finished = False
 
-AcceptedName = frozenset(['Field', 'Title', 'Member', 'Abstract', 'Keyword', 'Award'])
+AcceptedName = frozenset(['[Field]', '[Title]', '[Member]', '[Abstract]', '[Keyword]', ']Award]'])
 
 class Project(object):
     Fair = ''
@@ -24,7 +24,7 @@ class Project(object):
     def IsTeam(self):
         if _AutoFix and len(self.Member) == 0:
             # self.Member.append('Unknown')
-            self.AddData('Member', 'Unknown_' + self.Fair + '_' + self.ID)
+            self.AddData('[Member]', 'Unknown_' + self.Fair + '_' + self.ID)
         assert len(self.Member) > 0
         return len(self.Member) > 1
 
@@ -49,17 +49,17 @@ class Project(object):
         assert name != ''
         assert value != ''
 
-        if name == 'Field':
+        if name == '[Field]':
             if _AutoFix and len(self.Field) < len(value):
                 self.Field = value
             assert self.Field == '' or self.Field == value
             self.Field = value
-        elif name == 'Title':
+        elif name == '[Title]':
             if _AutoFix and len(self.Title) < len(value):
                 self.Title = value
             assert self.Title == '' or self.Title == value
             self.Title = value
-        elif name == 'Member':
+        elif name == '[Member]':
             if not value in self.Member:
                 self.Member.append(value)
                 assert len(self.Member) <= 3
@@ -78,15 +78,15 @@ class Project(object):
                     _MemberToMembers[item] = allmember
                     _ContainerByMember[item] = allproject
                 _ContainerByMembers[min(allmember)] = allproject
-        elif name == 'Abstract':
+        elif name == '[Abstract]':
             if _AutoFix and len(self.Abstract) < len(value):
                 self.Abstract = value
             assert self.Abstract == '' or self.Abstract == value
             self.Abstract = value
-        elif name == 'Keyword':
+        elif name == '[Keyword]':
             if not value in self.Keyword:
                 self.Keyword.append(value)
-        elif name == 'Award':
+        elif name == '[Award]':
             if not value in self.Award:
                 self.Award.append(value)
 

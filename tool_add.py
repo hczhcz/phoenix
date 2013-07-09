@@ -18,9 +18,9 @@ class Session(object):
         # value = value.strip()
         if name == '' or value == '':
             pass
-        elif name == 'ID':
+        elif name == '[ID]':
             self.__AddProject(value)
-        elif name == 'Fair':
+        elif name == '[Fair]':
             self.__CurrentFair = value
         elif name in self.__PreAssign.keys():
             self.__CurrentProject = None
@@ -30,7 +30,7 @@ class Session(object):
 
     def __init__(self, fair = '', pre = None):
         if pre == None:
-            self.__PreAssign = {'Award': ''}
+            self.__PreAssign = {'[Award]': ''}
         else:
             self.__PreAssign = pre
         self.__CurrentFair = fair
@@ -52,7 +52,7 @@ def AddList(fair, list, pre = None):
         line = rawline.strip()
         if line == '':
             pass
-        elif line in container.AcceptedName or line == 'ID' or line == 'Fair':
+        elif line in container.AcceptedName or line == '[ID]' or line == '[Fair]':
             Fin(name, value)
             name = ''
             value = ''
