@@ -1,3 +1,4 @@
+import os
 import container
 
 class Session(object):
@@ -67,3 +68,8 @@ def AddFile(fair, file, pre = None):
     handle = open(file)
     AddList(fair, handle.readlines(), pre)
     handle.close()
+
+def AddDir(fair, dir, pre = None):
+    for root, subdir, subfile in os.walk(dir):
+        for item in subfile:
+            AddFile(fair, os.path.join(root, item), pre)
