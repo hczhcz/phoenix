@@ -6,7 +6,7 @@ _MemberToMembers = {}
 _AutoFix = True # For uncompleted data
 _Finished = False
 
-AcceptedName = frozenset(['[Field]', '[Title]', '[Member]', '[Abstract]', '[Keyword]', ']Award]'])
+AcceptedName = frozenset(['[Field]', '[Title]', '[Member]', '[Abstract]', '[Keyword]', '[Award]'])
 
 class Project(object):
     Fair = ''
