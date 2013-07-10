@@ -6,7 +6,7 @@ _MemberToMembers = {}
 _AutoFix = True # For uncompleted data
 _Finished = False
 
-AcceptedName = frozenset(['[Field]', '[Title]', '[Member]', '[Abstract]', '[Keyword]', '[Award]'])
+AcceptedName = frozenset(['[Field]', '[Title]', '[Member]', '[School]', '[Abstract]', '[Keyword]', '[Award]'])
 
 class Project(object):
     Fair = ''
@@ -14,6 +14,7 @@ class Project(object):
     Field = ''
     Title = ''
     Member = None
+    School = None
     Abstract = ''
     Keyword = None
     Award = None
@@ -78,6 +79,9 @@ class Project(object):
                     _MemberToMembers[item] = allmember
                     _ContainerByMember[item] = allproject
                 _ContainerByMembers[min(allmember)] = allproject
+        elif name == '[School]':
+            if not value in self.School:
+                self.School.append(value)
         elif name == '[Abstract]':
             if _AutoFix and len(self.Abstract) < len(value):
                 self.Abstract = value
@@ -99,6 +103,7 @@ class Project(object):
                 'Title': self.Title,
                 'IsTeam': self.IsTeam(),
                 'Member': self.Member,
+                'School': self.School,
                 'Abstract': self.Abstract,
                 'Keyword': self.Keyword,
                 'IsAwarded': self.IsAwarded(),
@@ -113,6 +118,7 @@ class Project(object):
                                 + ('[Field]     ' + self.Field + '\n' if self.Field != '' else '')\
                                 + ('[Title]     ' + self.Title + '\n' if self.Title != '' else '')\
                                 + ('[Author]    ' + self.Member[0] + '\n' if not self.IsTeam() else '[Team]      ' + ', '.join(self.Member) + '\n')\
+                                + ('[School]    ' + '\n' + '\n'.join(self.School) + '\n' if len(self.School) > 0 else '')\
                                 + ('[Abstract]  ' + '\n' + self.Abstract + '\n' if self.Abstract != '' else '')\
                                 + ('[Keyword]   ' + ', '.join(self.Keyword) + '\n' if len(self.Keyword) > 0 else '')\
                                 + ('[Related]   ' + ', '.join([item.Fair + ' ' + item.ID for item in self.Related()]) + '\n' if self.IsRelated() > 0 else '')\
@@ -121,6 +127,7 @@ class Project(object):
 
     def __init__(self, fair, id):
         self.Member = list()
+        self.School = list()
         self.Keyword = list()
         self.Award = list()
         self.Fair = fair
