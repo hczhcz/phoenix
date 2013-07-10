@@ -1,3 +1,4 @@
+import os
 import re
 
 # reobj = re.compile(regex)
@@ -9,17 +10,28 @@ _ReContainer = []
 def AddRe(rulefrom, ruleto):
     _ReContainer.append((re.compile(rulefrom), ruleto))
 
-def ClearRe:
+def ClearRe():
     _ReContainer = []
 
-def Process(reobj, data):
+def Process(data):
     result = data
     for reobj, tostr in _ReContainer:
         result = reobj.sub(tostr, result)
     return result
 
-def ProcessFile(reobj, infile, outfile):
-    pass
+def ProcessFile(infile, outfile):
+    inhandle = open(infile)
+    outhandle = open(outfile, 'w+')
+    outhandle.write(Process(inhandle.read()))
+    inhandle.close()
+    outhandle.close()
 
-def ProcessDir(reobj, indir, outdir):
-    pass
+def ProcessDir(indir, outdir):
+    if not os.path.isdir(outdir):
+        os.mkdir(outdir)
+    for root, subdir, subfile in os.walk(indir):
+        for item in subfile:
+            # Bug !!!
+            # Flatten subdirs and cannot handle duplication of name
+            # I am lazy xD
+            ProcessFile(os.path.join(root, item), os.path.join(outdir, item))
