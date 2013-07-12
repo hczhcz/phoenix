@@ -1114,16 +1114,6 @@ Clear Lake High School, Houston, TX
 With the rising global temperatures, solar energy has become a sunny solution to many. This project investigated how solar energy could best be utilized to meet the energy needs of a small industrial plant by mathematically modeling solar collectors and determining which control mechanism (proportional, integral, or proportional/integral control) best maintained the outlet temperature of the heat transfer fluid.<br><br>A first-principles, dynamic model of the solar energy collector was developed and used to identify the control structure that best achieved the stated control objective. Flow rate of the heat transfer fluid was used as the manipulated variable, and the integral absolute error criterion was used to tune and evaluate the control performance.<br><br>The proportional/integral controller had the lowest integral absolute error and was found to be the best mechanism to maintain the outlet temperature of the heat transfer fluid. The proportional/integral controller was also found to be the best mechanism to maintain the outlet energy rate of the heat transfer fluid at setpoint. <br><br>Maintaining a constant outlet energy rate is preferred over maintaining a constant outlet temperature because this control objective affords smoother system operation and greater flexibility in terms of applications.<br><br>Suggesting a different control objective (collector outlet energy rate instead of outlet temperature) is a unique contribution of this project, and to the best of my knowledge it has not been used in published literature. Further research could include more rigorous modeling, consideration of additional control mechanisms, and application of the new control objective in an actual plant. 
 ________________________________________
 2004 - MA016 
-A NOVEL CLASS OF REPRESENTATIONS OF THE LINK GROUP AND CONSEQUENT LINK INVARIANTS
-Sam Jay Lewallen
-Stuyvesant High School, New York City, New York, United States
-
-
-
-Awards won at the 2004 ISEF
-Third Award of $250 - American Mathematical Society
-________________________________________
-2004 - MA016 
 A NOVEL SET OF REPRESENTATIONS OF THE TWO-COMPONENT LINK GROUP AND CONSEQUENT LINK INVARIANTS
 Sam Jay Lewallen
 Stuyvesant High School, New York City, New York, United States
@@ -1133,68 +1123,9 @@ We propose a novel set of representations of the group pi(L) of a link L of two 
 Awards won at the 2004 ISEF
 Third Award of $250 - American Mathematical Society
 Award of $5,000 - Intel Foundation Achievement Awards
-________________________________________
-2004 - MA016 
-A NOVEL CLASS OF REPRESENTATIONS OF THE LINK GROUP AND CONSEQUENT LINK INVARIANTS
-Sam Jay Lewallen
-Stuyvesant High School, New York City, New York, United States
-
-
-
-Awards won at the 2004 ISEF
-Award of $5,000 - Intel Foundation Achievement Awards
-________________________________________
-2004 - MA016 
-A NOVEL SET OF REPRESENTATIONS OF THE TWO-COMPONENT LINK GROUP AND CONSEQUENT LINK INVARIANTS
-Sam Jay Lewallen
-Stuyvesant High School, New York City, New York, United States
-
-We propose a novel set of representations of the group pi(L) of a link L of two components onto the direct product of two dihedral groups. (The “group of a link” actually refers to pi(S -L), the fundamental group of three dimensional Euclidean space S with the link removed.) We analyze the group theoretic properties of these representations and show that they correspond to a coloring invariant of the link. We then demonstrate how this coloring invariant reduces into a mapping of one of the link components into a dihedral group and the other into a cyclic group. We analyze this new, reduced, coloring, which we call n-bicoloring, and explore its applicability to determining link equivalence. We also discuss several possible algorithms for deriving numerical and polynomial invariants from the novel coloring, and conjecture certain properties of these invariants, namely that they are related to the analogous classical invariants by a “twist” with the linking number. We then suggest an interpretation of these new invariants in terms of the covering spaces of the link. Such an interpretation facilitates more powerful generalizing of the novel representations. 
-
-Awards won at the 2004 ISEF
-Fourth Award of $500 - Mathematics - Presented by Panasonic Consumer Electronics Company
-________________________________________
-2004 - MA016 
-A NOVEL CLASS OF REPRESENTATIONS OF THE LINK GROUP AND CONSEQUENT LINK INVARIANTS
-Sam Jay Lewallen
-Stuyvesant High School, New York City, New York, United States
-
-
-
-Awards won at the 2004 ISEF
 Fourth Award of $500 - Mathematics - Presented by Panasonic Consumer Electronics Company
 First Award of $3,000 - U.S. Air Force
-________________________________________
-2004 - MA016 
-A NOVEL SET OF REPRESENTATIONS OF THE TWO-COMPONENT LINK GROUP AND CONSEQUENT LINK INVARIANTS
-Sam Jay Lewallen
-Stuyvesant High School, New York City, New York, United States
-
-We propose a novel set of representations of the group pi(L) of a link L of two components onto the direct product of two dihedral groups. (The “group of a link” actually refers to pi(S -L), the fundamental group of three dimensional Euclidean space S with the link removed.) We analyze the group theoretic properties of these representations and show that they correspond to a coloring invariant of the link. We then demonstrate how this coloring invariant reduces into a mapping of one of the link components into a dihedral group and the other into a cyclic group. We analyze this new, reduced, coloring, which we call n-bicoloring, and explore its applicability to determining link equivalence. We also discuss several possible algorithms for deriving numerical and polynomial invariants from the novel coloring, and conjecture certain properties of these invariants, namely that they are related to the analogous classical invariants by a “twist” with the linking number. We then suggest an interpretation of these new invariants in terms of the covering spaces of the link. Such an interpretation facilitates more powerful generalizing of the novel representations. 
-
-Awards won at the 2004 ISEF
-First Award of $3,000 - U.S. Air Force
 Scholarship in the amount of $8,000 - Office of Naval Research on behalf of the U.S. Navy and Marine Corps.
-________________________________________
-2004 - MA016 
-A NOVEL CLASS OF REPRESENTATIONS OF THE LINK GROUP AND CONSEQUENT LINK INVARIANTS
-Sam Jay Lewallen
-Stuyvesant High School, New York City, New York, United States
-
-
-
-Awards won at the 2004 ISEF
-Scholarship in the amount of $8,000 - Office of Naval Research on behalf of the U.S. Navy and Marine Corps.
-All expense paid trip for five weeks and scholarship to the Bessie Lawrence International Summer Science Institute at the Weizmann Institute of Science in Rehovot, Israel - American Committee for the Weizmann Institute of Science
-________________________________________
-2004 - MA016 
-A NOVEL SET OF REPRESENTATIONS OF THE TWO-COMPONENT LINK GROUP AND CONSEQUENT LINK INVARIANTS
-Sam Jay Lewallen
-Stuyvesant High School, New York City, New York, United States
-
-We propose a novel set of representations of the group pi(L) of a link L of two components onto the direct product of two dihedral groups. (The “group of a link” actually refers to pi(S -L), the fundamental group of three dimensional Euclidean space S with the link removed.) We analyze the group theoretic properties of these representations and show that they correspond to a coloring invariant of the link. We then demonstrate how this coloring invariant reduces into a mapping of one of the link components into a dihedral group and the other into a cyclic group. We analyze this new, reduced, coloring, which we call n-bicoloring, and explore its applicability to determining link equivalence. We also discuss several possible algorithms for deriving numerical and polynomial invariants from the novel coloring, and conjecture certain properties of these invariants, namely that they are related to the analogous classical invariants by a “twist” with the linking number. We then suggest an interpretation of these new invariants in terms of the covering spaces of the link. Such an interpretation facilitates more powerful generalizing of the novel representations. 
-
-Awards won at the 2004 ISEF
 All expense paid trip for five weeks and scholarship to the Bessie Lawrence International Summer Science Institute at the Weizmann Institute of Science in Rehovot, Israel - American Committee for the Weizmann Institute of Science
 ________________________________________
 2008 - MA017 
