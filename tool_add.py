@@ -30,7 +30,7 @@ class Session(object):
 
     def __init__(self, fair = '', pre = None):
         if pre == None:
-            self.__PreAssign = {'[Award]': ''}
+            self.__PreAssign = {}
         else:
             self.__PreAssign = pre
         self.__CurrentFair = fair
