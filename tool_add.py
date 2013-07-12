@@ -35,7 +35,7 @@ class Session(object):
             self.__PreAssign = pre
         self.__CurrentFair = fair
 
-def AddList(fair, list, pre = None):
+def AddList(fair, list, pre = None, debug = False):
     assert fair != ''
 
     tosession = Session(fair, pre)
@@ -61,15 +61,19 @@ def AddList(fair, list, pre = None):
             if value != '':
                 value += '\n'
             value += line
+        if debug:
+            print 'ok: ' + line
 
     Fin(name, value)
 
-def AddFile(fair, file, pre = None):
+def AddFile(fair, file, pre = None, debug = False):
     handle = open(file)
-    AddList(fair, handle.readlines(), pre)
+    AddList(fair, handle.readlines(), pre, debug)
     handle.close()
 
-def AddDir(fair, dir, pre = None):
+def AddDir(fair, dir, pre = None, debug = False):
     for root, subdir, subfile in os.walk(dir):
         for item in subfile:
-            AddFile(fair, os.path.join(root, item), pre)
+            if debug:
+                print 'file: ' + os.path.join(root, item)
+            AddFile(fair, os.path.join(root, item), pre, debug)
