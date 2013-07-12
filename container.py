@@ -5,6 +5,7 @@ _MemberToMembers = {}
 
 _AutoFix = True # For uncompleted data
 _Finished = False
+_IgnoreRedu = True
 
 AcceptedName = frozenset(['[Field]', '[Title]', '[Member]', '[School]', '[Abstract]', '[Keyword]', '[Award]'])
 
@@ -106,8 +107,9 @@ class Project(object):
                 'School': self.School,
                 'Abstract': self.Abstract,
                 'Keyword': self.Keyword,
-                'IsAwarded': self.IsAwarded(),
+                'IsRelated': self.IsRelated(),
                 'Related': {(item.Fair, item.ID) for item in self.Related()},
+                'IsAwarded': self.IsAwarded(),
                 'Award': self.Award,
             }
         return self.__Dataset
@@ -139,13 +141,25 @@ class Project(object):
     # def __repr__(self):
     #     return repr(self.Dataset)
 
+class FakeProject(Project):
+# class FakeProject(Project):
+    def AddData(self, name, value):
+        pass
+
+    def __init__(self):
+        pass
+
 def GetContainerItem(fair, id):
     assert fair != ''
     assert id != ''
     if not _Container.has_key((fair, id)):
         assert not _Finished
         _Container[(fair, id)] = Project(fair, id)
-    return _Container[(fair, id)]
+        return _Container[(fair, id)]
+    elif _IgnoreRedu:
+        return FakeProject()
+    else:
+        return _Container[(fair, id)]
 
 def GetContainer():
     assert _Finished or _AutoFix
