@@ -60,12 +60,13 @@ class MultiQuery(_QueryBase):
 
     def Summaryset(self, data):
         assert len(data) > 0
+        firstone = list(data)[0]
         return {
             'IsAwarded': True in {item.IsAwarded() for item in data},
-            'CoveredAward': {subitem for item in data for subitem in item.Award()},
-            'CoveredMember': {subitem for item in data for subitem in item.Member()},
-            'MemberChanged': True in {set(item.Member) != set(data[0].Member) for item in data},
-            'FieldChanged': True in {item.Field != data[0].Field for item in data}
+            'CoveredAward': {subitem for item in data for subitem in item.Award},
+            'CoveredMember': {subitem for item in data for subitem in item.Member},
+            'MemberChanged': True in {set(item.Member) != set(firstone.Member) for item in data},
+            'FieldChanged': True in {item.Field != firstone.Field for item in data}
         }
 
     def PrintToString(self):
