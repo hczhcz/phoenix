@@ -9,14 +9,14 @@ class _QueryBase(object):
     def _StrToLambda(self, str):
         assert False
 
+    def Count(self):
+        return len(self._Result)
+
     def Select(self, func):
         self._Result = {item for item in self._Result if func(item)}
 
     def SelectByStr(self, str):
         self.Select(self._StrToLambda(str))
-
-    def Count(self):
-        return len(self._Result)
 
     def Iterate(self, func):
         return {func(item) for item in self._Result}
@@ -52,7 +52,7 @@ class Query(_QueryBase):
         return result
 
     def __init__(self):
-        self._Result = container.GetContainer().values()
+        self._Result = set(container.GetContainer().values())
 
 class MultiQuery(_QueryBase):
     def _StrToLambda(self, str):
