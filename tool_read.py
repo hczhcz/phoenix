@@ -30,8 +30,28 @@ class _QueryBase(object):
             result += func(item)
         return result
 
-    def EvalByStr(self, str):
-        return self.Eval(self._StrToLambda(str))
+    def EvalByStr(self, str, start = 0):
+        return self.Eval(self._StrToLambda(str), start)
+
+    def Split(self, func, gencount = False, genmulti = False):
+        assert not (gencount and genmulti)
+
+        resultdict = {}
+        for item in self._Result:
+            key = func(item)
+            if not resultdict.has_key(key):
+                resultdict[key] = []
+            resultdict[key].append(item)
+
+        if gencount:
+            return {key: len(data) for key, data in resultdict.items()}
+        elif genmulti:
+            return CustomMultiQuery(set(result.values()))
+        else:
+            return {key: CustomQuery(set(data)) for key, data in resultdict.items()}
+
+    def SplitByStr(self, str, gencount = False, genmulti = False):
+        return self.Split(self._StrToLambda(str), gencount, genmulti)
 
     def PrintToString(self):
         assert False
@@ -41,7 +61,7 @@ class _QueryBase(object):
         handle.write(self.PrintToString())
         handle.close()
 
-class Query(_QueryBase):
+class CustomQuery(_QueryBase):
     def _StrToLambda(self, str):
         return lambda dataobj: (lambda data: eval(str))(dataobj.Dataset())
 
@@ -51,10 +71,14 @@ class Query(_QueryBase):
             result += item.FriendlyPrint() + '\n'
         return result
 
+    def __init__(self, data):
+        self._Result = data
+
+class Query(CustomQuery):
     def __init__(self):
         self._Result = set(container.GetContainer().values())
 
-class MultiQuery(_QueryBase):
+class CustomMultiQuery(_QueryBase):
     def _StrToLambda(self, str):
         return lambda dataobj: (lambda data, summary: eval(str))([item.Dataset() for item in dataobj], self.Summaryset(dataobj))
 
@@ -77,6 +101,10 @@ class MultiQuery(_QueryBase):
             result += '============\n\n'
         return result
 
+    def __init__(self, data):
+        self._Result = data
+
+class MultiQuery(CustomMultiQuery):
     def __init__(self, bymember = False):
         if bymember:
             self._Result = {frozenset(item) for item in container.GetMemberContainer().values()}
