@@ -62,24 +62,29 @@ class Project(object):
             assert self.Title == '' or self.Title == value
             self.Title = value
         elif name == '[Member]':
-            if not value in self.Member:
-                self.Member.append(value)
-                assert len(self.Member) <= 3
+            if _AutoFix and value.find('School', 0) >= 0:
+                # self.AddData('[School]', value)
+                if not value in self.School:
+                    self.School.append(value)
+            else:
+                if not value in self.Member:
+                    self.Member.append(value)
+                    assert len(self.Member) <= 3
 
-                allmember = set(self.Member)
-                allproject = set([self])
-                # Can be optimized if necessary, just iterate last member's data
-                for item in self.Member:
-                    if _MemberToMembers.has_key(item):
-                        cbmkey = min(_MemberToMembers[item])
-                        allmember |= _MemberToMembers[item]
-                        if _ContainerByMembers.has_key(cbmkey):
-                            allproject |= _ContainerByMembers[cbmkey]
-                            del _ContainerByMembers[cbmkey]
-                for item in allmember:
-                    _MemberToMembers[item] = allmember
-                    _ContainerByMember[item] = allproject
-                _ContainerByMembers[min(allmember)] = allproject
+                    allmember = set(self.Member)
+                    allproject = set([self])
+                    # Can be optimized if necessary, just iterate last member's data
+                    for item in self.Member:
+                        if _MemberToMembers.has_key(item):
+                            cbmkey = min(_MemberToMembers[item])
+                            allmember |= _MemberToMembers[item]
+                            if _ContainerByMembers.has_key(cbmkey):
+                                allproject |= _ContainerByMembers[cbmkey]
+                                del _ContainerByMembers[cbmkey]
+                    for item in allmember:
+                        _MemberToMembers[item] = allmember
+                        _ContainerByMember[item] = allproject
+                    _ContainerByMembers[min(allmember)] = allproject
         elif name == '[School]':
             if not value in self.School:
                 self.School.append(value)
