@@ -3,7 +3,8 @@ from reprocessor import *
 
 def InitDatabase():
     AddRe(r'____+___', r'')
-    AddRe(r'(\n| |<br>)+\n|\n(\n| |<br>)+', r'\n')
+    AddRe(r'\n(\r|\n| |<br>)+', r'\n')
+    AddRe(r'(\r|\n| |<br>)+\n', r'\n')
     AddRe(r' +', r' ')
     AddRe(r'(<br>)+', r'<br>')
 
