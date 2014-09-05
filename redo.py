@@ -25,7 +25,7 @@ def InitDatabase():
     AddRe(r'\[Award\]\n(.+)\n(?!\[)(.+)', r'[Award]\n\1\n[Award]\n\2')
     AddRe(r'\[Award\]\n(.+)\n(?!\[)(.+)', r'[Award]\n\1\n[Award]\n\2')
     AddRe(r'\[Award\]\n(.+)\n(?!\[)(.+)', r'[Award]\n\1\n[Award]\n\2')
-    ProcessDir('data\\', 'processeddata\\')
+    ProcessDir('data', 'processeddata')
 
 if __name__ == '__main__':
     InitDatabase()
